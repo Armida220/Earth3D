@@ -1,0 +1,27 @@
+{
+  "name": "Earth3D",
+  "version": "1.0.0",
+  "description": "three.js 3d earth \r # build tools\r parcel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techzealot/Earth3D.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/techzealot/Earth3D/issues"
+  },
+  "homepage": "https://github.com/techzealot/Earth3D#readme",
+  "dependencies": {
+    "three": "^0.91.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}

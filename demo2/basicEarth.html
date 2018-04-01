@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<!-- 顶点着色器定义 -->
+<script id="vertexShader" type="x-shader/x-vertex">
+    varying vec2 vUv;
+
+    void main()	{
+        vUv = uv;
+        vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+        gl_Position = projectionMatrix * mvPosition;
+
+    }
+</script> 
+<!-- 片元着色器定义 -->
+<script id="fragmentShader" type="x-shader/x-fragment">
+    uniform float time;
+    varying vec2 vUv;
+    uniform sampler2D texture;
+
+    void main()	{
+        vec3 color = texture2D( texture, vUv ).xyz;
+        gl_FragColor = vec4(color,1.0);
+    }
+</script>
+<script src="./index.js"></script>
+</body>
+</html>

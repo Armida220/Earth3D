@@ -54,7 +54,7 @@ function init(){
 function render(){
     uniforms.time.value+=0.05;
     renderer.render(scene,camera)
-    mesh.rotation.y+=0.02;
+    scene.rotation.y+=0.02;
 }
 function animate(){
     requestAnimationFrame(animate)

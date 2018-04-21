@@ -34,9 +34,9 @@ axios.get('http://localhost:1234/world.json').then((res) => {
             },
             label: {
                 show: false,
-                fontSize:2
+                fontSize: 2
             },
-            selectedMode:'single'
+            selectedMode: 'single'
         }
     });
     console.log(mapChart)
@@ -88,15 +88,43 @@ axios.get('http://localhost:1234/world.json').then((res) => {
                 // },
             ],
         },
-        // geo3D:{
-        //     itemStyle:{
-        //         borderWidth:2
-        //     }
-        // },
-        series: [
-            
-        ]
+        series: [{
+            name: 'lines3D',
+            type: 'lines3D',
+            coordinateSystem: 'globe',
+            effect: {
+                //是否显示尾迹特效
+                show: true
+            },
+            blendMode: 'lighter',
+            lineStyle: {
+                width: 2
+            },
+            data: [],
+            silent: false
+        }]
+    }
+    // 随机数据
+    for (let i = 0; i < 500; i++) {
+        option.series[0].data = option.series[0].data.concat(rodamData())
+    }
+
+    function rodamData() {
+        let name = '随机点' + Math.random().toFixed(5) * 100000
+        // let longitude = Math.random() * 62 + 73
+        let longitude = 105.18
+        let longitude2 = Math.random() * 360 - 180
+        // let latitude = Math.random() * 50 + 3.52
+        let latitude = 37.51
+        let latitude2 = Math.random() * 180 - 90
+        return {
+            coords: [
+                [longitude2, latitude2],
+                [longitude, latitude]
+            ],
+            value: (Math.random() * 3000).toFixed(2)
+        }
     }
     earth.setOption(option);
-   
+
 })
